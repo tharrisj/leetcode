@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use rand::{distributions, Rng};
 
+// TODO: improve by keeping track of the largest difference in character positions and returning the largest to get the largest substring
 fn length_of_longest_substring(s: String) -> i32 {
     let mut max_length: i32 = 0;
     let mut unique_vals: HashMap<char, usize> = HashMap::new();
