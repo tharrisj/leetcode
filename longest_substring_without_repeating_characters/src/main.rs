@@ -1,7 +1,33 @@
-use std::collections::HashMap;
+// use std::collections::HashMap;
 use rand::{distributions, Rng};
 
+fn length_of_longest_substring(s: String) -> i32 {
+    let mut max_length = 0;
+    let mut char_pos: [usize; 200] = [0; 200];
+    let mut pos: usize = 0;
+
+    for (i, ch) in s.chars().enumerate() {
+        // get the last position of the character we're currently checking
+        pos = {
+            if pos > char_pos[ch as usize] { pos }
+            else { char_pos[ch as usize] }
+        };
+
+        // if the length between the character we're checking is greater than the max_length, change max_length
+        max_length = {
+            if max_length > i-pos+1 { max_length }
+            else { i-pos+1 }
+        };
+
+        // Store the new position of the character in the char_pos array
+        char_pos[ch as usize] = i + 1;
+    }
+
+    max_length as i32
+}
+
 // TODO: improve by keeping track of the largest difference in character positions and returning the largest to get the largest substring
+/*
 fn length_of_longest_substring(s: String) -> i32 {
     let mut max_length: i32 = 0;
     let mut unique_vals: HashMap<char, usize> = HashMap::new();
@@ -28,6 +54,7 @@ fn length_of_longest_substring(s: String) -> i32 {
 
     max_length
 }
+*/
 
 fn main() {
     let length: usize = 100;
