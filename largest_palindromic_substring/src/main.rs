@@ -2,6 +2,7 @@ use std::collections::HashMap;
 
 struct Solution{}
 
+// TODO: Implement better solution. I could just take each character and attempt to expand to each side to find longest palindrome.
 impl Solution {
     fn is_palindrome(s: &str) -> bool {
         let chars: Vec<char> = s.chars().collect();
@@ -14,7 +15,6 @@ impl Solution {
     }
 
     pub fn largest_palindrome(s: String) -> String {
-//        let mut largest_str = String::from(&s[0..1]);
         let mut largest_str: String = String::new();
         let mut char_pos: HashMap<char, Vec<usize>> = HashMap::new();
 
