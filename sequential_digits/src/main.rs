@@ -1,8 +1,32 @@
 struct Solution{}
 
 impl Solution{
+    fn is_sequential(num: i32) -> bool {
+        let mut test = num;
+        let mut prev = test % 10;
+        test /= 10;
+        while test > 0 {
+            let cur = test % 10;
+            if prev != cur+1 {
+                return false
+            }
+            prev = cur;
+            test /= 10;
+        }
+
+        true
+    }
+
     pub fn sequential_digits(low: i32, high: i32) -> Vec<i32> {
-        
+        let mut res: Vec<i32> = vec!();
+                
+        for i in low..=high {
+            if Solution::is_sequential(i) {
+                res.push(i);
+            }
+        }
+
+        res
     }
 }
 
