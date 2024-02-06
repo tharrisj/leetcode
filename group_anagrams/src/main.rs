@@ -16,7 +16,7 @@ impl Solution{
             map_ele.push(ele);
         }
 
-        for (key, val) in anagrams {
+        for (_, val) in anagrams {
             ret.push(val);
         }
 
