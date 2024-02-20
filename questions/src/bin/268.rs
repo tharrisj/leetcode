@@ -2,7 +2,8 @@ struct Solution;
 
 impl Solution{
     pub fn missing_number(nums: Vec<i32>) -> i32 {
-        (0..=nums.len() as i32).into_iter().sum::<i32>() - nums.iter().sum::<i32>()
+        let sum = nums.len() as i32 * (nums.len() as i32 +1) / 2;
+        sum - nums.iter().sum::<i32>()
     }
 }
 
