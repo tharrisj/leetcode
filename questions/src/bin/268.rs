@@ -2,15 +2,7 @@ struct Solution;
 
 impl Solution{
     pub fn missing_number(nums: Vec<i32>) -> i32 {
-        let mut nums = nums;
-        nums.sort_unstable();
-        
-        for i in 0..nums.len() {
-            if i as i32 != nums[i] {
-                return i as i32;
-            }
-        }
-        nums.len() as i32
+        (0..=nums.len() as i32).into_iter().sum::<i32>() - nums.iter().sum::<i32>()
     }
 }
 
