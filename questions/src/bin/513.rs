@@ -40,5 +40,16 @@ impl Solution{
 }
 
 fn main() {
+    let test = Some(Rc::new(RefCell::new(TreeNode::new(1))));
+    let mut first = test.as_ref().unwrap().borrow_mut();
+    first.left = Some(Rc::new(RefCell::new(TreeNode::new(2))));
+    first.right = Some(Rc::new(RefCell::new(TreeNode::new(3))));
+    let mut second = first.left.as_ref().unwrap().borrow_mut();
+    second.left = Some(Rc::new(RefCell::new(TreeNode::new(4))));
+    second.right = Some(Rc::new(RefCell::new(TreeNode::new(5))));
+
+    let ret = Solution::find_bottom_left_value(test.clone());
+    assert_eq!(ret, 4);
+
     println!("Tests Complete!")
 }
