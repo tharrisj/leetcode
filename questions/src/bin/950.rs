@@ -8,7 +8,7 @@ impl Solution{
         deck.sort_unstable();
         let mut deck = deck.into_iter();
 
-        let mut queue = VecDeque::from_iter(0..deck.len());
+        let mut queue = std::collections::VecDeque::from_iter(0..deck.len());
         let mut result = vec![0; deck.len()];
 
         while let Some(i) = queue.pop_front() {
